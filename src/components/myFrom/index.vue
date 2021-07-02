@@ -18,8 +18,8 @@
 import myInput from './myInput.vue';
 import myFromItem from './myFromItem.vue';
 import myFrom from './myFrom.vue';
-import create from '../../utils/create.js';
-import Notic from '../Notic.vue'
+// import create from '../../utils/create.js';
+// import Notic from '../Notic.vue'
 
 export default {
   inheritAttrs: false,
@@ -46,10 +46,14 @@ export default {
   methods: {
     submit() {
       this.$refs.rulesFrom.validate(isValid => {
-        create(Notic, {
+        this.$notice({
           title:'消息提示',
           message: isValid? '成功':'失败',
         }).show()
+        // create(Notic, {
+        //   title:'消息提示',
+        //   message: isValid? '成功':'失败',
+        // }).show()
       })
     }
   }
